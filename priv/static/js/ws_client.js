@@ -6,7 +6,6 @@ window.onload = function() {
 		type: "edit"
 	};
 
-	/* Connection is established send location data */
 	wsc.onopen = function(r) {
 		wsc.send(JSON.stringify(msgObj));
 	}

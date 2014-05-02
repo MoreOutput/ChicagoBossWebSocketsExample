@@ -34,7 +34,6 @@ handle_incoming(ServiceName, WebSocketId, Message, State) ->
 process_post(ServiceName, WebSocketId, IncomingMessage, State) ->
   ID = binary_to_list(proplists:get_value(<<"id">>, IncomingMessage, "None")),
   Post = boss_db:find(ID),
-  {_, _, _, _, Likes, _, _, {_,_,_,_}} = Pic,
   UpdatedPost = Post:set( [{title, "Hello World"}] ),
   case UpdatedPost:save() of
     {ok, Saved} -> 
